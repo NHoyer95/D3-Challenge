@@ -18,3 +18,20 @@ var svg = d3.select("#scatter").append("svg")
 // Formatting shift
 var chartGroup = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+
+// Load the data from data.csv file
+d3.csv("/data/data.csv").then(function(censusData) {
+    
+    // console.log the data to make sure it is loading in succesfully
+    console.log(censusData);
+
+    // parse the data
+    censusData.forEach(function(data) {
+        data.poverty = +data.poverty;
+        data.healthcare = +data.healthcare;
+    });
+
+});
+
+    
