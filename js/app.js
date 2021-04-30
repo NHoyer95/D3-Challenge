@@ -61,8 +61,8 @@ d3.csv("/data/data.csv").then(function(censusData) {
         .attr("cx", d => xLinearScale(d.poverty))
         .attr("cy", d => yLinearScale(d.healthcare))
         .attr("r", 15)
-        .attr("fill", "teal")
-        .attr("opacity", ".5")
+        .attr("fill", "green")
+        .attr("opacity", ".25")
         .attr("stroke", "black")
 
     // Create the labels for each state
