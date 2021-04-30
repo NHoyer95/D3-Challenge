@@ -88,15 +88,15 @@ d3.csv("/data/data.csv").then(function(censusData) {
         .attr("y", chartHeight + 50)
         .text("In Poverty (%)");
 
-    // // Create label for the y axis
-    // var yLabel = chartGroup.append("text")
-    //     .attr("class", "y label")
-    //     .attr("text-anchor", "end")
-    //     .attr("font-weight", 500)
-    //     .attr("x", -130)
-    //     .attr("y", -50)
-    //     .attr("transform", "rotate(-90)")
-    //     .text("Lacks Healthcare (%)");
+    // Create label for the y axis
+    var yLabel = chartGroup.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("font-weight", 500)
+        .attr("x", -130)
+        .attr("y", -50)
+        .attr("transform", "rotate(-90)")
+        .text("Lacks Healthcare (%)");
 
 });
 
