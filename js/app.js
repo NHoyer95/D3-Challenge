@@ -45,6 +45,14 @@ d3.csv("/data/data.csv").then(function(censusData) {
     var xAxis = d3.axisBottom(xLinearScale);
     var yAxis = d3.axisLeft(yLinearScale);
 
+    // Append x and y axis to the chart
+    chartGroup.append("g")
+        .attr("transform", `translate(0, ${chartHeight})`)
+        .call(xAxis);
+
+    chartGroup.append("g")
+        .call(yAxis);
+        
 });
 
     
