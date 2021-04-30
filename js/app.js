@@ -23,14 +23,27 @@ var chartGroup = svg.append("g")
 // Load the data from data.csv file
 d3.csv("/data/data.csv").then(function(censusData) {
     
-    // console.log the data to make sure it is loading in succesfully
+    // Log the data to ensure it is loading
     console.log(censusData);
 
-    // parse the data
+    // Parse the data
     censusData.forEach(function(data) {
         data.poverty = +data.poverty;
         data.healthcare = +data.healthcare;
     });
+
+    // Create the scales and axis from the dataset
+    var xLinearScale = d3.scaleLinear()
+        .domain([d3.min(censusData, d => d.poverty) - 1, d3.max(censusData, d => d.poverty) + 1])
+        .range([0, chartWidth]);
+
+    var yLinearScale = d3.scaleLinear()
+        .domain([d3.min(censusData, d => d.healthcare) - 1, d3.max(censusData, d => d.healthcare)+1])
+        .range([chartHeight, 0]);
+
+    // Create x and y axis
+    var xAxis = d3.axisBottom(xLinearScale);
+    var yAxis = d3.axisLeft(yLinearScale);
 
 });
 
